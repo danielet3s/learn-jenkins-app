@@ -23,7 +23,9 @@ pipeline {
                 npm ci
 
                 echo "Compiling..."
-                npm run build
+                npm install serve
+                node_modules/.bin/serve -s build &
+                sleep 10
                 '''
             }
         }
@@ -60,6 +62,27 @@ pipeline {
                     }
                 }
             }
+        }
+        stage('Deploy'){
+            agent {
+                docker{
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps{
+
+                // for this test we will deploy in netlify 
+                // see netlify https://docs.netlify.com/cli/get-started/#app
+                sh '''
+                    npm install netlify-cli -g
+                    netflify --version
+
+
+
+                '''
+            }
+
         }
     }
     post{
