@@ -42,20 +42,22 @@ pipeline {
                 '''
             }
         }
-        parallel{
-            stage('p1'){
-                steps{
-                    echo "P1"
+        stage('parallel'){
+            parallel{
+                stage('p1'){
+                    steps{
+                        echo "P1"
+                    }
                 }
-            }
-            stage('p2'){
-                steps{
-                    echo "P2"
+                stage('p2'){
+                    steps{
+                        echo "P2"
+                    }
                 }
-            }
-            stage('p3'){
-                steps{
-                    echo "P3"
+                stage('p3'){
+                    steps{
+                        echo "P3"
+                    }
                 }
             }
         }
