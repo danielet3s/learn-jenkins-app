@@ -9,6 +9,11 @@ pipeline {
                 }
             }
             steps {
+                /*
+                    check dependencies
+                    Build
+
+                */
                 sh '''
                 echo "check versions..."
                 npm --version
@@ -37,9 +42,27 @@ pipeline {
                 '''
             }
         }
+        parallel{
+            stage('p1'){
+                steps{
+                    echo "P1"
+                }
+            }
+            stage('p2'){
+                steps{
+                    echo "P2"
+                }
+            }
+            stage('p3'){
+                steps{
+                    echo "P3"
+                }
+            }
+        }
     }
     post{
         success{
+            // get the report
             junit 'test-results/junit.xml'
         }
     }
