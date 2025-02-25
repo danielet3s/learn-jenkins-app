@@ -34,6 +34,7 @@ pipeline {
                     echo "running Tests..."
                     npm test
                 '''
+            }
         }
     }
 }
