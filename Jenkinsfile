@@ -76,7 +76,7 @@ pipeline {
                 // see netlify https://docs.netlify.com/cli/get-started/#app
                 sh '''
                     npm install netlify-cli -g
-                    netflify --version
+                    node_modules/.bin/netflify --version
 
 
 
