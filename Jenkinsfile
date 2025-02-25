@@ -75,6 +75,7 @@ pipeline {
                 // for this test we will deploy in netlify 
                 // see netlify https://docs.netlify.com/cli/get-started/#app
                 sh '''
+                    sudo chown -R $(whoami) /usr/local/lib/node_modules
                     npm install netlify-cli -g
                     node_modules/.bin/netflify --version
 
