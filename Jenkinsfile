@@ -17,6 +17,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "I ADDED THIS AT 10:45 26/02/2025"
                     ls -la
                     node --version
                     npm --version
